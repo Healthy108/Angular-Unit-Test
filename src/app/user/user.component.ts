@@ -10,18 +10,19 @@ export class UserComponent {
 
   constructor(private apiService: ApiService) {}
 
+  data: any = [];
+
   ngOnInit() {
     this.getMokingData();
   }
 
-  data: any = [];
-
   getMokingData() {
     this.apiService.getData().subscribe({
       next: (res) => {
-        this.data = res
+        this.data = res;
       },
       error: console.log,
     })
   }
+
 }

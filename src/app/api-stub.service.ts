@@ -8,10 +8,9 @@ export class ApiStubService {
 
   constructor() { }
 
-   // Phương thức giả định của HttpService
-   getData(url: string): Observable<any> {
+   getData(): Observable<any> {
     // Trả về một giá trị giả định
-    return of({ data: 'Mocked data' });
+    return of({ id: 1, foo: 'bar' });
   }
 
 }

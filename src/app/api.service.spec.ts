@@ -7,17 +7,14 @@ import { ApiStubService } from './api-stub.service';
 
 describe('ApiService', () => {
   let apiService: ApiService;
-  // let apiService: ApiStubService;
   let httpMock: HttpTestingController;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
       providers: [ApiService]
-      // providers: [ApiStubService]
     });
     apiService = TestBed.inject(ApiService);
-    // apiService = TestBed.inject(ApiStubService);
     httpMock = TestBed.inject(HttpTestingController);
   });
 
@@ -60,9 +57,30 @@ describe('ApiService', () => {
 
   })
 
-  // it('should get data info from ApiServiceStub', () => {
-  //   const dataa = apiService.getData('url');
-  //   // Kiểm tra dữ liệu trả về từ UserService có đúng hay không
-  //   expect(dataa).toEqual({ data: 'a'; });
-  // });
+});
+
+// STUBB SERVICE
+describe('ApiService', () => {
+  let apiService: ApiStubService;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
+      providers: [ApiStubService]
+    });
+    apiService = TestBed.inject(ApiStubService);
+  });
+
+  it('should be created', () => {
+    expect(apiService).toBeTruthy();
+  });
+
+  it('should get data info from ApiServiceStub', () => {
+    const result = apiService.getData();
+    // Kiểm tra dữ liệu trả về từ ApiServiceStub có đúng hay không
+    result.subscribe(data => {
+      expect(data).toEqual({ id: 1, foo: 'bar' });
+    })
+  });
+
 });
