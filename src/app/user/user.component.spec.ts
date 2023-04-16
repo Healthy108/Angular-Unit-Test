@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { UserComponent } from './user.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { ApiStubService } from '../api-stub.service';
 
 describe('UserComponent', () => {
   let component: UserComponent;
@@ -21,4 +22,5 @@ describe('UserComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  
 });

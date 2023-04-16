@@ -19,11 +19,7 @@ export class UserComponent {
   getMokingData() {
     this.apiService.getData().subscribe({
       next: (res) => {
-        console.log(res);
-        
         this.data = res
-        console.log(this.data);
-                
       },
       error: console.log,
     })
